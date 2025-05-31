@@ -19,7 +19,7 @@ const OwnerDashboard = () => {
         setRatings(data?.users || []);
         setAverage(data?.average || 0);
       } catch (err) {
-        setError('❌ Failed to load ratings. Please try again.');
+        setError('Failed to load ratings. Please try again.');
       } finally {
         setLoading(false);
       }

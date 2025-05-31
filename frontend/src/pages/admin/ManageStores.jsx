@@ -41,16 +41,23 @@ const ManageStores = () => {
 
   // Fetch owners to assign store owner when creating store
   const fetchOwners = () => {
-    api.get('/admin/users?role=owner', { // assuming backend supports filtering by role
-      headers: { Authorization: `Bearer ${token}` },
+  api.get('/admin/users?role=owner', {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+    .then(res => {
+      const ownerList = Array.isArray(res.data)
+        ? res.data
+        : Array.isArray(res.data.users)
+        ? res.data.users
+        : [];
+      setOwners(ownerList);
     })
-      .then(res => {
-        setOwners(res.data || []);
-      })
-      .catch(() => {
-        setMessage({ type: 'error', text: 'Failed to fetch owners.' });
-      });
-  };
+    .catch(() => {
+      setMessage({ type: 'error', text: 'Failed to fetch owners.' });
+      setOwners([]); // fallback to empty array to avoid .map crash
+    });
+};
+
 
   const handleChange = (e) => {
     setNewStore({ ...newStore, [e.target.name]: e.target.value });
@@ -189,7 +196,7 @@ const ManageStores = () => {
                   <tr key={store.id} className="hover:bg-gray-50">
                     <td className="px-4 py-2">{store.name}</td>
                     <td className="px-4 py-2">{store.address}</td>
-                    <td className="px-4 py-2">{store.ownerName || '-'}</td>
+                    <td className="px-4 py-2">{store.owner?.username || '-'}</td>
                     <td className="px-4 py-2">{store.phone || '-'}</td>
                     <td className="px-4 py-2">{store.averageRating?.toFixed(2) || 'N/A'}</td>
                   </tr>

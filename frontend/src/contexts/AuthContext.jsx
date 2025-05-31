@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
         setUser(userData);
         setToken(tokenData);
 
-        return userData; // 🔥 RETURN THE USER OBJECT (not just true/false)
+        return userData; // RETURN THE USER OBJECT (not just true/false)
       } else {
         console.error('Login failed:', data.message || data.errors);
         return null;

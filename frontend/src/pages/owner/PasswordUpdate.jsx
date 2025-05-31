@@ -21,10 +21,10 @@ const PasswordUpdate = () => {
 
     try {
       await updatePassword(user.id, password);
-      setMessage('✅ Password updated successfully.');
+      setMessage('Password updated successfully.');
       setPassword('');
     } catch (err) {
-      setError('❌ Failed to update password. Please try again.');
+      setError('Failed to update password. Please try again.');
     }
   };
 
