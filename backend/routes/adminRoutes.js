@@ -14,7 +14,7 @@ const router = express.Router();
 // Only admin can access
 router.use(authMiddleware, roleMiddleware(ROLES.ADMIN));
 
-// Add stats route
+
 router.get('/stats', adminController.getAdminStats);
 
 router.get('/users', adminController.getAllUsers);
@@ -24,7 +24,6 @@ router.put('/users/:id', joiValidationMiddleware(updateUser), adminController.up
 router.delete('/users/:id', adminController.deleteUser);
 
 
-// Add these to admin routes:
 router.get('/stores', storeController.getAllStores);
 
 router.post(

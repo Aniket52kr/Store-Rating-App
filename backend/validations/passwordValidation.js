@@ -1,9 +1,6 @@
 // validations/passwordValidation.js
 import Joi from 'joi';
 
-/**
- * Validation schema for updating/changing password
- */
 const passwordUpdateSchema = Joi.object({
   currentPassword: Joi.string().min(6).required().messages({
     'string.empty': 'Current password is required',
@@ -19,7 +16,7 @@ const passwordUpdateSchema = Joi.object({
   }),
 });
 
-// ✅ Wrap and export as an object
+// Wrap and export as an object
 export const passwordValidation = {
   updatePassword: passwordUpdateSchema,
 };

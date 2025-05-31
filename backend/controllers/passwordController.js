@@ -1,4 +1,3 @@
-// controllers/passwordController.js
 import bcrypt from 'bcryptjs';
 import { User } from '../models/index.js';
 import { responseHelper } from '../utils/responseHelper.js';

@@ -4,9 +4,6 @@ import { Sequelize } from 'sequelize';
 
 export const getAllStores = async (req, res, next) => {
   try {
-    // For Admin: return stores with owner info and average rating
-    // For normal users: same info, but owner info might not be sensitive
-
     const stores = await Store.findAll({
       attributes: {
         include: [

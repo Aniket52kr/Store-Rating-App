@@ -1,7 +1,4 @@
-/**
- * Helper functions for standardized HTTP responses
- */
-
+// Helper functions for standardized HTTP responses
 export const responseHelper = {
   success: (res, data = {}, message = 'Success', statusCode = 200) => {
     return res.status(statusCode).json({

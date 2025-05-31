@@ -1,4 +1,3 @@
-// controllers/ownerController.js
 import { Store } from '../models/index.js';
 import { responseHelper } from '../utils/responseHelper.js';
 

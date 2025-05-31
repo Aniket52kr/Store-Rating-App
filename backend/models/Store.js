@@ -27,11 +27,6 @@ export default function StoreModel(sequelize) {
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    // Optional: Add image field if shown in frontend
-    // image: {
-    //   type: DataTypes.STRING,
-    //   allowNull: true,
-    // },
   }, {
     tableName: 'stores',
     timestamps: true,

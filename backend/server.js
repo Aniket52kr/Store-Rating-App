@@ -4,17 +4,17 @@ dotenv.config();
 
 import app from './app.js';
 import { connectDB } from './config/db.js';
-import { sequelize } from './models/index.js'; // ✅ Import sequelize
+import { sequelize } from './models/index.js'; 
 
 const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
   try {
-    await connectDB(); // ✅ Connect to DB manually if needed
+    await connectDB(); 
 
-    // ✅ Sync models with DB to reflect latest schema
+    
     await sequelize.sync({ alter: true });
-    console.log('✅ Models synced with database');
+    console.log('Models synced with database');
 
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
